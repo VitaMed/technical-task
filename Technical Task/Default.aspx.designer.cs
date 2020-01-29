@@ -33,15 +33,6 @@ namespace Technical_Task
         protected global::System.Web.UI.HtmlControls.HtmlTable tblWeather;
 
         /// <summary>
-        /// imgWeatherIcon элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgWeatherIcon;
-
-        /// <summary>
         /// lblCity_Country элемент управления.
         /// </summary>
         /// <remarks>
@@ -69,6 +60,24 @@ namespace Technical_Task
         protected global::System.Web.UI.WebControls.Label lblDescription;
 
         /// <summary>
+        /// Date элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Date;
+
+        /// <summary>
+        /// imgWeatherIcon элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgWeatherIcon;
+
+        /// <summary>
         /// lblTemperature элемент управления.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace Technical_Task
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTemperature;
+
+        /// <summary>
+        /// lblHumidity элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHumidity;
 
         /// <summary>
         /// lblTempMin элемент управления.
@@ -87,6 +105,15 @@ namespace Technical_Task
         protected global::System.Web.UI.WebControls.Label lblTempMin;
 
         /// <summary>
+        /// WindTxt элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label WindTxt;
+
+        /// <summary>
         /// lblTempMax элемент управления.
         /// </summary>
         /// <remarks>
@@ -94,15 +121,6 @@ namespace Technical_Task
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTempMax;
-
-        /// <summary>
-        /// lblHumidity элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHumidity;
 
         /// <summary>
         /// btnRate элемент управления.

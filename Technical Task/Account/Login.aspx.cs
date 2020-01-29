@@ -63,7 +63,7 @@ namespace Technical_Task.Account
  
             newMail.Subject = "Weather and Currency Rate";
             newMail.Body = message;
-            newMail.From = new MailAddress("test@gmail.com", "Name");
+            newMail.From = new MailAddress("testmedov@gmail.com", "Vita");
             newMail.IsBodyHtml = true;
 
             SmtpClient SmtpSender = new SmtpClient();
@@ -72,7 +72,7 @@ namespace Technical_Task.Account
             SmtpSender.EnableSsl = true;
             SmtpSender.DeliveryMethod = SmtpDeliveryMethod.Network;
             SmtpSender.UseDefaultCredentials = false;
-            SmtpSender.Credentials = new NetworkCredential(newMail.From.Address, "Password");
+            SmtpSender.Credentials = new NetworkCredential(newMail.From.Address, "123456test");
             SmtpSender.Send(newMail);
             Email.Text = "";
             Number.Text = "";

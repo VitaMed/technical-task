@@ -29,10 +29,12 @@ namespace Technical_Task
                     imgCountryFlag.ImageUrl = string.Format("http://openweathermap.org/images/flags/{0}.png", weatherInfo.sys.country.ToLower());
                     lblDescription.Text = weatherInfo.weather[0].description;
                     imgWeatherIcon.ImageUrl = string.Format("http://openweathermap.org/img/w/{0}.png", weatherInfo.weather[0].icon);
-                    lblTemperature.Text = string.Format("{0} К", Math.Round(weatherInfo.main.temp, 1));
-                    lblTempMin.Text = string.Format("{0} К", Math.Round(weatherInfo.main.temp_min, 1));
-                    lblTempMax.Text = string.Format("{0} К", Math.Round(weatherInfo.main.temp_max, 1));
+                    lblTemperature.Text = string.Format("{0} °C", Math.Round(weatherInfo.main.temp - 273.15, 1));
+                    lblTempMin.Text = string.Format("{0} °C", Math.Round(weatherInfo.main.temp_min - 273.15, 1));
+                    lblTempMax.Text = string.Format("{0} °C", Math.Round(weatherInfo.main.temp_max - 273.15, 1));
+                    WindTxt.Text = weatherInfo.wind.speed.ToString();
                     lblHumidity.Text = weatherInfo.main.humidity.ToString();
+                    Date.Text = DateTime.Now.DayOfWeek.ToString();
                     tblWeather.Visible = true;
                 }
             }
@@ -41,13 +43,18 @@ namespace Technical_Task
         public class WeatherInfo
         {
             public Coord coord { get; set; }
+            public Wind wind { get; set; }
             public Sys sys { get; set; }
             public List<Weather> weather { get; set; }
             public Main main { get; set; }
             public int dt { get; set; }
             public string name { get; set; }
         }
-
+        public class Wind
+        {
+            public double speed  { get; set; }
+            public double deg  { get; set; }
+    }
         public class Coord
         {
             public double lon { get; set; }
