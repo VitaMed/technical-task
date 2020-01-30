@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Technical_Task
 {
@@ -13,12 +15,39 @@ namespace Technical_Task
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LoadJson();
+        }
+        public void LoadJson()
+        {
+            using (StreamReader r = new StreamReader(Server.MapPath(Request.ApplicationPath) + "\\Content\\filtered_cities.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Item> items = JsonConvert.DeserializeObject<List<Item>>(json);
+                foreach (var item in items)
+                {
+                    if (item.country == "UA")
+                    {
+                        txtCity.Items.Add(new ListItem(item.name));
+                    }
+                }
+            }
         }
 
-        protected void GetWeatherInfo(object sender, EventArgs e)
+        public class Item
         {
-            string url = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID=a70bf26a352ed19b69a30b04a450b0ee", txtCity.Text.Trim());
+            public int id;
+            public string name;
+            public string country;
+            public Coord coord; 
+        }
+       
+        protected void SendtoEmail(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Account/Login");
+        }
+            protected void GetWeatherInfo(object sender, EventArgs e)
+        {
+            string url = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID=a70bf26a352ed19b69a30b04a450b0ee", txtCity.SelectedValue);
             using (WebClient client = new WebClient())
             {
                 string json = client.DownloadString(url);

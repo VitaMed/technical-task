@@ -10,7 +10,9 @@ using System.Net.Mail;
 using System.Net;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
-
+using System.IO;
+using Newtonsoft.Json;
+using System.Web.UI.WebControls;
 
 namespace Technical_Task.Account
 {
@@ -27,6 +29,7 @@ namespace Technical_Task.Account
             {
               //  RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
+            LoadJson();
         }
 
         protected void LogIn(object sender, EventArgs e)
@@ -36,7 +39,7 @@ namespace Technical_Task.Account
             newMail.To.Add(Email.Text.Trim());
             string message="";
 
-            string url1 = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID=a70bf26a352ed19b69a30b04a450b0ee", City.Text.Trim());
+            string url1 = string.Format("http://api.openweathermap.org/data/2.5/weather?q={0}&APPID=a70bf26a352ed19b69a30b04a450b0ee", txtCity.SelectedValue.Trim());
             string url2 = string.Format("http://api.currencylayer.com/live?access_key=094dba8bb53990b884139ba310ac3f76&currencies=EUR,GBP,CAD,PLN&format=1");
 
             using (WebClient client = new WebClient())
@@ -77,9 +80,23 @@ namespace Technical_Task.Account
             Email.Text = "";
             Number.Text = "";
             Name.Text = "";
-            City.Text = "";
             Response.Write(@"<script language='javascript'>alert('Information was sent to your E-mail!');</script>");
 
+        }
+        public void LoadJson()
+        {
+            using (StreamReader r = new StreamReader(Server.MapPath(Request.ApplicationPath) + "\\Content\\filtered_cities.json"))
+            {
+                string json = r.ReadToEnd();
+                List<_Default.Item> items = JsonConvert.DeserializeObject<List<_Default.Item>>(json);
+                foreach (var item in items)
+                {
+                    if (item.country == "UA")
+                    {
+                        txtCity.Items.Add(new ListItem(item.name));
+                    }
+                }
+            }
         }
 
     }

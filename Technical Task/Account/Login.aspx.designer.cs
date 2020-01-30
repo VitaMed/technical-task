@@ -60,15 +60,6 @@ namespace Technical_Task.Account
         protected global::System.Web.UI.WebControls.TextBox Number;
 
         /// <summary>
-        /// RegularExpressionValidator2 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-
-        /// <summary>
         /// Name элемент управления.
         /// </summary>
         /// <remarks>
@@ -87,22 +78,13 @@ namespace Technical_Task.Account
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
-        /// City элемент управления.
+        /// txtCity элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox City;
-
-        /// <summary>
-        /// RegularExpressionValidator4 элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
+        protected global::System.Web.UI.WebControls.DropDownList txtCity;
 
         /// <summary>
         /// Label1 элемент управления.
